@@ -4,25 +4,23 @@ namespace CDC\Loja\RH;
 
 class Cargo
 {
-    private $cargos = [
-        TabelaCargos::DESENVOLVEDOR => 'CDC\\Loja\\RH\\DezOuVintePorCento',
-        TabelaCargos::DBA => 'CDC\\Loja\\RH\\QuinzeOuVinteECincoPorCento',
-        TabelaCargos::TESTADOR => 'CDC\\Loja\\RH\\QuinzeOuVinteECincoPorCento',
-    ];
+    private $nome;
 
     private $regra;
 
-    public function __construct($regra)
+    public function __construct($nome, RegraDeCalculo $regra)
     {
-        if (array_key_exists($regra, $this->cargos)) {
-            $this->regra = $this->cargos[$regra];
-        } else {
-            throw new \RuntimeException("Cargo inválido");
-        }
+        $this->nome = $nome;
+        $this->regra = $regra;
     }
 
-    public function getRegra()
+    public function getRegra() : RegraDeCalculo
     {
-        return new $this->regra;
+        return $this->regra;
+    }
+
+    public function getNome()
+    {
+        return $this->nome;
     }
 }

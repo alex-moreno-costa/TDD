@@ -7,7 +7,6 @@ class CalculadoraDeSalario
 {
     public function calculaSalario(Funcionario $funcionario)
     {
-        $cargo = new Cargo($funcionario->getCargo());
-        return $cargo->getRegra()->calcula($funcionario);
+        return $funcionario->getCargo()->getRegra()->calcula($funcionario);
     }
 }

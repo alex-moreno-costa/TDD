@@ -9,7 +9,7 @@ class Funcionario
     protected $salario;
     protected $cargo;
 
-    public function __construct($nome,$salario,$cargo)
+    public function __construct($nome, $salario, Cargo $cargo)
     {
         $this->nome = $nome;
         $this->cargo = $cargo;
@@ -35,7 +35,7 @@ class Funcionario
     /**
      * @return mixed
      */
-    public function getCargo()
+    public function getCargo() : Cargo
     {
         return $this->cargo;
     }

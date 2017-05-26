@@ -10,7 +10,7 @@ class CalculadoraDeSalarioTest extends PHPUnit
     {
         $calculadora = new CalculadoraDeSalario();
 
-        $desenvolvedor = new Funcionario('André',1500.0, TabelaCargos::DESENVOLVEDOR);
+        $desenvolvedor = new Funcionario('André',1500.0, new Cargo('Desenvolvedor', new DezOuVintePorCento()));
 
         $salario = $calculadora->calculaSalario($desenvolvedor);
 
@@ -21,7 +21,7 @@ class CalculadoraDeSalarioTest extends PHPUnit
     {
         $calculadora = new CalculadoraDeSalario();
 
-        $desenvolvedor = new Funcionario('André',4000.0, TabelaCargos::DESENVOLVEDOR);
+        $desenvolvedor = new Funcionario('André',4000.0, new Cargo('Desenvolvedor', new DezOuVintePorCento()));
 
         $salario = $calculadora->calculaSalario($desenvolvedor);
 
@@ -32,7 +32,7 @@ class CalculadoraDeSalarioTest extends PHPUnit
     {
         $calculadora = new CalculadoraDeSalario();
 
-        $dba = new Funcionario('André',500.0, TabelaCargos::DBA);
+        $dba = new Funcionario('André',500.0, new Cargo('DBA', new QuinzeOuVinteECincoPorCento()));
 
         $salario = $calculadora->calculaSalario($dba);
 
@@ -43,7 +43,7 @@ class CalculadoraDeSalarioTest extends PHPUnit
     {
         $calculadora = new CalculadoraDeSalario();
 
-        $dba = new Funcionario("Mauricio", 4500, TabelaCargos::DBA);
+        $dba = new Funcionario("Mauricio", 4500, new Cargo('Testador', new QuinzeOuVinteECincoPorCento()));
         $salario = $calculadora->calculaSalario($dba);
 
         $this->assertEquals(4500 * 0.75, $salario, null, 0.00001);
