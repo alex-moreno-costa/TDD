@@ -39,4 +39,9 @@ class Funcionario
     {
         return $this->cargo;
     }
+
+    public function getSalarioLiquido()
+    {
+        return $this->cargo->getRegra()->calcula($this);
+    }
 }
