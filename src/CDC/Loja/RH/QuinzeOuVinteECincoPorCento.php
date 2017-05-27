@@ -4,12 +4,12 @@ namespace CDC\Loja\RH;
 
 class QuinzeOuVinteECincoPorCento implements RegraDeCalculo
 {
-    public function calcula(Funcionario $funcionario)
+    public function calcula(float $salario)
     {
-        if ($funcionario->getSalario() < 2500) {
-            return $funcionario->getSalario() * 0.85;
+        if ($salario < 2500) {
+            return $salario * 0.85;
         }
 
-        return $funcionario->getSalario() * 0.75;
+        return $salario * 0.75;
     }
 }

@@ -2,18 +2,15 @@
 
 namespace CDC\Loja\RH;
 
-
 class Funcionario
 {
     protected $nome;
-    protected $salario;
     protected $cargo;
 
-    public function __construct($nome, $salario, Cargo $cargo)
+    public function __construct($nome, Cargo $cargo)
     {
         $this->nome = $nome;
         $this->cargo = $cargo;
-        $this->salario = $salario;
     }
 
     /**
@@ -27,9 +24,9 @@ class Funcionario
     /**
      * @return mixed
      */
-    public function getSalario()
+    public function getSalarioBruto()
     {
-        return $this->salario;
+        return $this->cargo->getSalarioBruto();
     }
 
     /**
@@ -42,6 +39,6 @@ class Funcionario
 
     public function getSalarioLiquido()
     {
-        return $this->cargo->getRegra()->calcula($this);
+        return $this->cargo->getSalarioLiquido();
     }
 }
